@@ -16,6 +16,7 @@ public class Main {
     }
 
     public static String pluralize(String animal, int number) {
+        // check int and adds s if its bigger than 1 or 0
         if (number == 0 || number > 1) {
             return animal + "s";
         }
@@ -27,7 +28,7 @@ public class Main {
         Random rand = new Random();
         int countOfHeads = 0;
         int countOfFlips = 0;
-
+        //will run till the number of flips wanted is aquired or will reset if anything than a head happens
         while (countOfHeads < flips) {
             countOfFlips++;
             double randomNumber = rand.nextDouble();
@@ -54,11 +55,11 @@ public class Main {
             int minute = now.getMinute();
             int second = now.getSecond();
 
-            
-
             if(secondTracker!=second){
-                System.out.println(hour+":"+minute+":"+second);
+                // System.out.println(hour+":"+minute+":"+second);
+                System.out.printf("%02d:%02d:%02d\n", hour,minute,second);
             }
+            
             secondTracker = second;
         }
     }
