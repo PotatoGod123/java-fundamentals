@@ -3,8 +3,7 @@
  */
 package basiclibrary;
 
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class Library {
     public boolean someLibraryMethod() {
@@ -91,4 +90,66 @@ public class Library {
         System.out.println(Arrays.toString(arrayArray[counter]));
         return arrayArray[counter];
     }
+
+    public static String averageTempString(int[][]arrWithArr){
+        String epic="epic";
+        HashSet<Integer> tempAverages = new HashSet<>();
+
+        for(int[]  arr:arrWithArr){
+            int tempHolder = (int) calculateAverage(arr);
+            System.out.println(tempHolder+" this is int");
+//            System.out.println(calculateAverage(arr)+" this is  float");
+            tempAverages.add(tempHolder);
+        }
+        System.out.println(tempAverages);
+        int high=0;
+        int low=10000000;
+        for(int temp:tempAverages){
+            if(temp>high){
+                high=temp;
+            }else if(temp<low){
+                low=temp;
+            }
+        }
+        for(int temp:tempAverages){
+            if(temp==high){
+                System.out.println("High : "+high);
+            }else if(temp==low){
+                System.out.println("Low: "+low);
+            }else {
+                System.out.println("Never saw temperature: "+temp);
+            }
+        }
+        System.out.println("this is high>> "+high+" this is low>>"+low);
+        return epic;
+    }
+
+    public static String tally(List<String> counts){
+        System.out.println(counts);
+        HashSet<String> people = new HashSet<>();
+        for(String peps:counts){
+            people.add(peps);
+        }
+        HashMap<String, Integer> peopleCount = new HashMap<>();
+
+        for (String curatedPeople:people){
+            peopleCount.put(curatedPeople,0);
+        }
+        System.out.println(people);
+        System.out.println(peopleCount);
+        for (String nameBallots:counts){
+            int totalCount= peopleCount.get(nameBallots);
+            totalCount++;
+            peopleCount.put(nameBallots,totalCount);
+        }
+        int maxVotes = Collections.max(peopleCount.values());
+        String winnerOfBallots=" ";
+        for(Map.Entry<String,Integer> entry:peopleCount.entrySet()){
+            if(entry.getValue()==maxVotes){
+                winnerOfBallots=entry.getKey()+" received the most votes!";
+            }
+        }
+        return winnerOfBallots;
+    }
+
 }

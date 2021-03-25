@@ -5,7 +5,9 @@ package basiclibrary;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -58,5 +60,39 @@ public class LibraryTest {
         int[] actualOutput= Library.averageLowestArray(weeklyMonthTemperatures);
 
         assertArrayEquals("exprected array should be [1,2,3,4,5,6,7] cause it has the lowest ave",expectedOutput,actualOutput);
+    }
+
+    @Test public void testStringTemp(){
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57},
+                {123,4343,4545,5454,34543,43543},
+                {1,2,3,4,5,6,7,8,9},
+                {12,123,1234,12}
+        };
+        String expectedOutput="epic";
+        String actualOutput = Library.averageTempString(weeklyMonthTemperatures);
+        assertEquals("should be epic",expectedOutput,actualOutput);
+    }
+
+    @Test public void testTally(){
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner = Library.tally(votes);
+        System.out.println(winner + " received the most votes!");
+        String expected ="Bush received the most votes!";
+
+        assertEquals("SHould be bush as the winner",expected,winner);
     }
 }
