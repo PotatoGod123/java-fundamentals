@@ -23,3 +23,9 @@ This directory has the Library.java file which contains methods and test, testin
 - averageLowestArray : This  will take an int arrays of arrays, find which arrays inside has the lowest Average of intergers and return said array that is the lowest average  
 
 [Basics](./basics/Main.java)
+
+
+## linter folder
+
+[Linter readme](./linter/README.md)  
+
