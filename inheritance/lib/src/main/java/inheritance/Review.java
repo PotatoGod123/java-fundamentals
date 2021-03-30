@@ -13,16 +13,27 @@ public class Review {
         this.author = author;
         this.numberOfStars = numberOfStars;
     }
+
+
+    public void updateStars(String author,int newStar, Restaurant restaurantCurrent){
+           for(Review restaurants : restaurantCurrent.reviewsHolder){
+               if(restaurants.author==author){
+                   restaurants.numberOfStars=newStar;
+                   restaurantCurrent.calculateStars();
+                   return;
+               }
+           }
+        System.out.println("type in correct author, no match found");
+
+
+    }
+
     @Override
     public String toString(){
-        String str=String.format("Hello %s, this your review for %s. Rated Stars:%o Review:%s",this.author,this.numberOfStars,this.body);
+        String str=String.format("Hello %s, this your review. Rated Stars:%o Review:%s",this.author,this.numberOfStars,this.body);
 
         return str;
     }
 
-    public void updateStars(int newStar){
-        this.numberOfStars=newStar;
-
-    }
 
 }

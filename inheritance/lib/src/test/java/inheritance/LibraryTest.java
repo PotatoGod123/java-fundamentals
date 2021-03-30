@@ -55,11 +55,12 @@ public class LibraryTest {
 
         System.out.println(holder.toString());
 
-        newReviewTwo.updateStars(5);
-        System.out.println(newReviewTwo.numberOfStars);
-
-        System.out.println(holder);
-
+        System.out.println(newReview.toString());
+        newReview.updateStars("Cristian",5, holder);
+        System.out.println(newReview.toString());
+        newReviewThree.updateStars("Cristian Three",5,holder);
+        newReviewTwo.updateStars("Cristian Two",5,holder);
+        System.out.println(holder.toString());
 
 
     }

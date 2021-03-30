@@ -7,7 +7,7 @@ public class Restaurant  {
     String name;
     int stars;
     String priceCategory;
-    List reviewsHolder;
+    List<Review> reviewsHolder;
     ArrayList<Integer> allStars;
     public Restaurant(String name, int stars, String priceCategory) {
 
@@ -35,9 +35,9 @@ public class Restaurant  {
 
     public void calculateStars(){
         int total=this.stars;
-        System.out.println(total+" This should be total at beginning");
+//        System.out.println(total+" This should be total at beginning");
         for(int starss:this.allStars){
-            System.out.println(starss);
+            System.out.println("these are the stars given by each reviewer "+starss);
             total+=starss;
         }
         System.out.println("this is size "+(allStars.size()+1));
