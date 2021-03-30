@@ -30,14 +30,14 @@ public class LibraryTest {
 
     @Test public void testReviewConstructor(){
         Restaurant holder = new Restaurant("Chi's",5,"$$");
-        Review reviewed = new Review("Was very cool and epic","Cristian",2,holder);
+        Review reviewed = new Review("Was very cool and epic","Cristian",2);
         assertEquals("Cristian", reviewed.author);
 
     }
 
     @Test public void testReviewToString(){
         Restaurant holder = new Restaurant("Chi's",5,"$$");
-        Review reviewed = new Review("Was very cool and epic.","Cristian",2,holder);
+        Review reviewed = new Review("Was very cool and epic.","Cristian",2);
 
         System.out.println(reviewed.toString());
 
@@ -45,15 +45,21 @@ public class LibraryTest {
     }
 
     @Test public void testUpdateReviewRating(){
-        Restaurant holder = new Restaurant("Chi's",0,"$$");
-        Review holder2 = null;
-        holder.addReview("Was very cool and epic.","Cristian",2);
-        holder.addReview("Was very cool .","CristianTwo",4);
+        Restaurant holder = new Restaurant("Chi's",1,"$$");
+        Review newReview = new Review("Was very cool and epic.","Cristian",2);
+        holder.addReview(newReview);
+        Review newReviewTwo = new Review("Was very cool .","Cristian Two",4);
+        holder.addReview(newReviewTwo);
+        Review newReviewThree = new Review("Was very not cool cool .","Cristian Three",1);
+        holder.addReview(newReviewThree);
+
         System.out.println(holder.toString());
 
-//        holder2.updateStars("Cristian",2,holder);
+        newReviewTwo.updateStars(5);
+        System.out.println(newReviewTwo.numberOfStars);
 
-        System.out.println(holder.toString());
+        System.out.println(holder);
+
 
 
     }
