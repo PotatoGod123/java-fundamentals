@@ -64,4 +64,53 @@ public class LibraryTest {
 
 
     }
+
+    @Test public void testShop(){
+        Shop newShop = new Shop("elShop","This shop is cool and we sell els","$$");
+
+        System.out.println(newShop.name);
+        System.out.println(newShop.toString());
+
+        assertEquals("Selected Shop is elShop, This shop is cool and we sell els. Average Reviews are 0",newShop.toString());
+
+    }
+
+    @Test public void testShopToString(){
+        Shop newShop = new Shop("elShop","This shop is cool and we sell els","$$");
+        newShop.addReview("cristian","very cool shop bought all els",4);
+        System.out.println(newShop.toString());
+        assertEquals("Selected Shop is elShop, This shop is cool and we sell els. Average Reviews are 4",newShop.toString());
+    }
+
+    @Test public void testBasicTheaterStuff(){
+        Theater newTheater = new Theater("Epic Movies");
+
+        System.out.println(newTheater.toString());
+
+        newTheater.addMovie("the epic movie");
+        System.out.println(newTheater.toString());
+        newTheater.addMovie("The epic movie TWO");
+        System.out.println(newTheater.toString());
+        newTheater.addMovie("THE EPIC MOVIE THREE: RETURN OF THE EPIC");
+        System.out.println(newTheater.toString());
+
+        newTheater.removeMovie("The epic movie TWO");
+        System.out.println(newTheater.toString());
+
+        assertEquals("Welcome to the grand Epic Movies Theater!, We are showing the epic movie, THE EPIC MOVIE THREE: RETURN OF THE EPIC, ",newTheater.toString());
+    }
+
+    @Test public void testAdvancedTheaterStuff(){
+        Theater newTheater = new Theater("Epic Movies");
+
+        System.out.println(newTheater.toString());
+
+        newTheater.addNewMovieReview(4,"the epic movie","Cristian","Was cool movie, not sure about it being epic");
+
+        System.out.println(newTheater.toString());
+
+        System.out.println(newTheater.newMovieHolder.size());
+
+        assertEquals(1,newTheater.newMovieHolder.size());
+    }
 }
