@@ -3,19 +3,17 @@ package inheritance;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant  {
+public class Restaurant implements ReviewAble  {
     String name;
     int stars;
     String priceCategory;
-    List<Review> reviewsHolder;
-    ArrayList<Integer> allStars;
+    List<Review> reviewsHolder= new ArrayList<>();
+    ArrayList<Integer> allStars=new ArrayList<>();
     public Restaurant(String name, int stars, String priceCategory) {
 
         this.name = name;
         this.stars = stars;
         this.priceCategory = priceCategory;
-        this.reviewsHolder = new ArrayList<>();
-        this.allStars= new ArrayList<>();
 
     }
 
@@ -32,7 +30,8 @@ public class Restaurant  {
         //now gotta make method to calculate and change the stores new ave rating
         calculateStars();
     }
-
+        //trying to bloody call this to update else where but it's not changing the stars in the current restaurant
+    @Override
     public void calculateStars(){
         int total=this.stars;
 //        System.out.println(total+" This should be total at beginning");
@@ -47,4 +46,13 @@ public class Restaurant  {
 
     }
 
+    @Override
+    public void addReview(String author, String body, int stars) {
+        //Made a new add review to this will test later, this is based on the other stores
+        Review newReview = new Review(body,author,stars);
+        reviewsHolder.add(newReview);
+        allStars.add(stars);
+        calculateStars();
+
+    }
 }

@@ -18,14 +18,12 @@ public class Review {
     public void updateStars(String author,int newStar, Restaurant restaurantCurrent){
            for(Review restaurants : restaurantCurrent.reviewsHolder){
                if(restaurants.author==author){
-                   restaurants.numberOfStars=newStar;
+                   numberOfStars=newStar;
                    restaurantCurrent.calculateStars();
                    return;
                }
            }
         System.out.println("type in correct author, no match found");
-
-
     }
 
     @Override
